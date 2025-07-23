@@ -19,7 +19,7 @@ function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="text-2xl sm:text-3xl font-heading text-primary">StyleHive</Link>
+          <Link to="/" className="text-2xl sm:text-3xl font-heading text-primary">RohitRoyal</Link>
           
           <div className="hidden md:flex items-center space-x-6">
             <Link to="/" className="hover:text-primary text-sm lg:text-base">Home</Link>

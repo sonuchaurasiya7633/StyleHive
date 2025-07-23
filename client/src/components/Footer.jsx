@@ -13,7 +13,7 @@ function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
           <div className="text-center md:text-left">
             <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-              © 2025 StyleHive. All rights reserved.
+              © 2025 RohitRoyal. All rights reserved.
             </p>
           </div>
           <div className="flex space-x-4">
