@@ -99,6 +99,7 @@ function BookingForm() {
           <input
             type="date"
             name="date"
+            placeholder='Enter the Date...'
             value={formData.date}
             onChange={handleChange}
             className="w-full p-3 border rounded-lg dark:bg-gray-700 focus:ring-2 focus:ring-primary"
@@ -109,6 +110,7 @@ function BookingForm() {
           <input
             type="time"
             name="time"
+            placeholder='Enter the Time...'
             value={formData.time}
             onChange={handleChange}
             className="w-full p-3 border rounded-lg dark:bg-gray-700 focus:ring-2 focus:ring-primary"
