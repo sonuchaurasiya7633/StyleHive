@@ -82,6 +82,7 @@ function BookingForm() {
     <>
       <form ref={form} onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-4 p-4 sm:p-6">
         <div>
+          <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Select Service</label>
           <select
             name="service"
             value={formData.service}
@@ -95,67 +96,75 @@ function BookingForm() {
           </select>
           {errors.service && <p className="text-red-500 text-sm mt-1">{errors.service}</p>}
         </div>
+
         <div>
+          <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Select Date</label>
           <input
             type="date"
             name="date"
-            placeholder='Enter the Date...'
             value={formData.date}
             onChange={handleChange}
             className="w-full p-3 border rounded-lg dark:bg-gray-700 focus:ring-2 focus:ring-primary"
           />
           {errors.date && <p className="text-red-500 text-sm mt-1">{errors.date}</p>}
         </div>
+
         <div>
+          <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Select Time</label>
           <input
             type="time"
             name="time"
-            placeholder='Enter the Time...'
             value={formData.time}
             onChange={handleChange}
             className="w-full p-3 border rounded-lg dark:bg-gray-700 focus:ring-2 focus:ring-primary"
           />
           {errors.time && <p className="text-red-500 text-sm mt-1">{errors.time}</p>}
         </div>
+
         <div>
+          <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Full Name</label>
           <input
             type="text"
             name="contactInfo.name"
-            placeholder="Full Name"
+            placeholder="John Doe"
             value={formData.contactInfo.name}
             onChange={handleChange}
             className="w-full p-3 border rounded-lg dark:bg-gray-700 focus:ring-2 focus:ring-primary"
           />
           {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
         </div>
+
         <div>
+          <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Email Address</label>
           <input
             type="email"
             name="contactInfo.email"
-            placeholder="Email Address"
+            placeholder="you@example.com"
             value={formData.contactInfo.email}
             onChange={handleChange}
             className="w-full p-3 border rounded-lg dark:bg-gray-700 focus:ring-2 focus:ring-primary"
           />
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
         </div>
+
         <div>
+          <label className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-300">Phone Number</label>
           <input
             type="tel"
             name="contactInfo.phone"
-            placeholder="Phone Number"
+            placeholder="9876543210"
             value={formData.contactInfo.phone}
             onChange={handleChange}
             className="w-full p-3 border rounded-lg dark:bg-gray-700 focus:ring-2 focus:ring-primary"
           />
           {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
         </div>
+
         <button type="submit" className="btn bg-primary text-white hover:bg-secondary w-full">
           Submit Booking
         </button>
       </form>
-      
-      {/* Toast container */}
+
       <ToastContainer position="top-center" autoClose={3000} hideProgressBar newestOnTop closeOnClick />
     </>
   );
