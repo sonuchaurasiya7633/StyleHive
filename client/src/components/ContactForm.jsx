@@ -1,5 +1,7 @@
-import { useState } from 'react';
-import axios from 'axios';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ContactForm() {
   const [formData, setFormData] = useState({
@@ -8,6 +10,7 @@ function ContactForm() {
     message: '',
   });
   const [errors, setErrors] = useState({});
+  const form = useRef();
 
   const validateForm = () => {
     const newErrors = {};
@@ -24,13 +27,20 @@ function ContactForm() {
       setErrors(validationErrors);
       return;
     }
+
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/contact`, formData);
-      alert('Message sent successfully!');
+      await emailjs.sendForm(
+        'service_yuk9rgs',
+        'template_v6gn2g7',
+        form.current,
+        'wJvTC3Wn0sZTvvsFC'
+      );
+      toast.success('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
       setErrors({});
     } catch (err) {
-      alert('Error sending message');
+      console.error(err);
+      toast.error('Error sending message');
     }
   };
 
@@ -40,44 +50,48 @@ function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-4 p-4 sm:p-6">
-      <div>
-        <input
-          type="text"
-          name="name"
-          placeholder="Full Name"
-          value={formData.name}
-          onChange={handleChange}
-          className="w-full p-3 border rounded-lg dark:bg-gray-700 focus:ring-2 focus:ring-primary"
-        />
-        {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
-      </div>
-      <div>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          value={formData.email}
-          onChange={handleChange}
-          className="w-full p-3 border rounded-lg dark:bg-gray-700 focus:ring-2 focus:ring-primary"
-        />
-        {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-      </div>
-      <div>
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          value={formData.message}
-          onChange={handleChange}
-          className="w-full p-3 border rounded-lg dark:bg-gray-700 focus:ring-2 focus:ring-primary"
-          rows="5"
-        ></textarea>
-        {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
-      </div>
-      <button type="submit" className="btn bg-primary text-white hover:bg-secondary w-full">
-        Send Message
-      </button>
-    </form>
+    <>
+      <form ref={form} onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-4 p-4 sm:p-6">
+        <div>
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full p-3 border rounded-lg dark:bg-gray-700 focus:ring-2 focus:ring-primary"
+          />
+          {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+        </div>
+        <div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full p-3 border rounded-lg dark:bg-gray-700 focus:ring-2 focus:ring-primary"
+          />
+          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+        </div>
+        <div>
+          <textarea
+            name="message"
+            placeholder="Your Message"
+            value={formData.message}
+            onChange={handleChange}
+            className="w-full p-3 border rounded-lg dark:bg-gray-700 focus:ring-2 focus:ring-primary"
+            rows="5"
+          ></textarea>
+          {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+        </div>
+        <button type="submit" className="btn bg-primary text-white hover:bg-secondary w-full">
+          Send Message
+        </button>
+      </form>
+
+      <ToastContainer position="top-center" autoClose={3000} hideProgressBar newestOnTop closeOnClick />
+    </>
   );
 }
 
