@@ -4,7 +4,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 function BookingForm() {
-  const [services, setServices] = useState([]);
   const [formData, setFormData] = useState({
     service: '',
     date: '',
@@ -13,16 +12,6 @@ function BookingForm() {
   });
   const [errors, setErrors] = useState({});
   const form = useRef();
-
-  useEffect(() => {
-    setServices([
-      { _id: '1', name: 'Haircut' },
-      { _id: '2', name: 'Beard Styling' },
-      { _id: '3', name: 'Hair Coloring' },
-      { _id: '4', name: 'Facial' },
-      { _id: '5', name: 'Hair Washing' }
-    ]);
-  }, []);
 
   const validateForm = () => {
     const newErrors = {};
@@ -90,9 +79,61 @@ function BookingForm() {
             className="w-full p-3 border rounded-lg dark:bg-gray-700 focus:ring-2 focus:ring-primary"
           >
             <option value="">Select Service</option>
-            {services.map(service => (
-              <option key={service._id} value={service.name}>{service.name}</option>
-            ))}
+
+            <optgroup label="💇‍♂ Hair Services">
+              <option value="Classic Haircut">Classic Haircut</option>
+              <option value="Beard Styling">Beard Styling</option>
+              <option value="Hair Coloring (Global & Highlights)">Hair Coloring (Global & Highlights)</option>
+              <option value="Hair Smoothening">Hair Smoothening</option>
+              <option value="Keratin Treatment">Keratin Treatment</option>
+              <option value="Head Massage (Oil Based)">Head Massage (Oil Based)</option>
+              <option value="Hair Spa">Hair Spa</option>
+              <option value="Kids Haircut">Kids Haircut</option>
+              <option value="Mullet Cut">Mullet Cut</option>
+              <option value="Fade Cut">Fade Cut</option>
+            </optgroup>
+
+            <optgroup label="💆‍♀ Skin & Facial Services">
+              <option value="Fruit Facial">Fruit Facial</option>
+              <option value="Gold Facial">Gold Facial</option>
+              <option value="Diamond Facial">Diamond Facial</option>
+              <option value="Detan Pack">Detan Pack</option>
+              <option value="Cleanup (Normal to Oily Skin)">Cleanup (Normal to Oily Skin)</option>
+              <option value="Anti-Acne Treatment">Anti-Acne Treatment</option>
+              <option value="Bridal Glow Facial">Bridal Glow Facial</option>
+              <option value="Skin Polishing">Skin Polishing</option>
+              <option value="Skin Brightening Facial">Skin Brightening Facial</option>
+              <option value="Anti-Aging Facial">Anti-Aging Facial</option>
+            </optgroup>
+
+            <optgroup label="💅 Grooming & Other Services">
+              <option value="Threading (Eyebrow, Upper Lip)">Threading (Eyebrow, Upper Lip)</option>
+              <option value="Waxing (Full Arm, Half Leg, Underarm)">Waxing (Full Arm, Half Leg, Underarm)</option>
+              <option value="Manicure">Manicure</option>
+              <option value="Pedicure">Pedicure</option>
+              <option value="Bleach (Face / Neck)">Bleach (Face / Neck)</option>
+              <option value="Mehendi Design (Hand/Bridal)">Mehendi Design (Hand/Bridal)</option>
+              <option value="Body Polishing">Body Polishing</option>
+              <option value="Back Massage">Back Massage</option>
+              <option value="Nail Art (Basic)">Nail Art (Basic)</option>
+              <option value="Makeup (Party / Bridal)">Makeup (Party / Bridal)</option>
+            </optgroup>
+
+            <optgroup label="👰 Bridal / Groom Packages">
+              <option value="Full Bridal Package (Makeup, Hairstyle, Saree Draping)">Full Bridal Package (Makeup, Hairstyle, Saree Draping)</option>
+              <option value="Groom Makeover (Facial + Haircut + Beard)">Groom Makeover (Facial + Haircut + Beard)</option>
+              <option value="Engagement Look">Engagement Look</option>
+              <option value="Haldi + Mehendi Makeup">Haldi + Mehendi Makeup</option>
+              <option value="Reception Look">Reception Look</option>
+            </optgroup>
+
+            <optgroup label="🚿 Hair Wash & Treatments">
+              <option value="Shampoo + Conditioner">Shampoo + Conditioner</option>
+              <option value="Anti-Dandruff Treatment">Anti-Dandruff Treatment</option>
+              <option value="Hair Fall Control Treatment">Hair Fall Control Treatment</option>
+              <option value="Scalp Detox">Scalp Detox</option>
+              <option value="Split End Repair">Split End Repair</option>
+            </optgroup>
           </select>
           {errors.service && <p className="text-red-500 text-sm mt-1">{errors.service}</p>}
         </div>
