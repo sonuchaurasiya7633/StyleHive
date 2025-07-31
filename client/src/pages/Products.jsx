@@ -111,18 +111,35 @@ const categories = [
 
 const Products = () => {
   return (
-    <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="relative p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-hidden">
+      
+      {/* Background bubbles */}
+      {[...Array(15)].map((_, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full bg-gradient-to-br from-pink-400 to-purple-400 opacity-20 blur-xl animate-ping"
+          style={{
+            width: `${8 + Math.random() * 12}px`,
+            height: `${8 + Math.random() * 12}px`,
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            animationDuration: `${4 + Math.random() * 6}s`,
+            animationDelay: `${Math.random() * 4}s`,
+          }}
+        ></div>
+      ))}
+
       {categories.map((category, idx) => (
         <div
           key={idx}
           className="
             relative
-            rounded-3xl 
+            rounded-3xl
             bg-white/20 dark:bg-white/10
-            backdrop-blur-md 
+            backdrop-blur-md
             border border-gray-200/30 dark:border-gray-700/30
-            shadow-xl hover:shadow-2xl 
-            hover:scale-105 
+            shadow-xl hover:shadow-2xl
+            hover:scale-105
             transition duration-500
             overflow-hidden
           "
@@ -132,7 +149,9 @@ const Products = () => {
 
           {/* Header */}
           <div className="bg-gradient-to-r from-pink-100/60 to-purple-100/60 dark:from-pink-300/20 dark:to-purple-300/20 rounded-t-3xl p-4">
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">{category.title}</h3>
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+              {category.title}
+            </h3>
           </div>
 
           {/* Items */}
@@ -141,9 +160,6 @@ const Products = () => {
               <li key={i}>{item}</li>
             ))}
           </ul>
-
-          {/* Bottom glow */}
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-1 bg-gradient-to-r from-purple-400 to-pink-400 blur-md opacity-60" />
         </div>
       ))}
     </div>
