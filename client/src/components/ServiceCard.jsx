@@ -15,25 +15,25 @@ function ServiceCard({ service }) {
       whileHover={{ scale: 1.05 }}
       transition={{ type: 'spring', stiffness: 150 }}
       className="
-        relative bg-white/90 dark:bg-gray-800/80 backdrop-blur-md
-        rounded-xl overflow-hidden shadow-lg hover:shadow-2xl
-        border border-gray-100 dark:border-gray-700
-        transition-all duration-300 flex flex-col"
+        relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-md 
+        rounded-xl overflow-hidden shadow-lg hover:shadow-2xl 
+        border border-gray-200 dark:border-gray-700 
+        hover:border-primary transition-all duration-300 flex flex-col"
     >
       <div className="relative aspect-w-4 aspect-h-3">
         <img
           src={service.image || 'https://via.placeholder.com/400x300?text=Service+Image'}
           alt={service.name}
-          className="object-cover w-full h-full"
+          className="object-cover w-full h-full rounded-t-xl"
         />
 
-        {/* Discount badge top-left */}
+        {/* Discount badge */}
         {service.discount && (
           <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="absolute top-2 left-2 bg-gradient-to-r from-pink-500 to-yellow-500 text-white text-xs sm:text-sm px-2 py-1 rounded-full shadow"
+            transition={{ duration: 0.4 }}
+            className="absolute top-2 left-2 bg-gradient-to-r from-pink-500 to-yellow-500 text-white text-xs sm:text-sm px-2 py-1 rounded-full shadow-md"
           >
             {service.discount}% OFF
           </motion.div>
@@ -48,17 +48,14 @@ function ServiceCard({ service }) {
           {service.description}
         </p>
 
-        {/* Modern price row */}
+        {/* Price area */}
         <div className="flex items-center space-x-2 mb-3">
-          <span className="text-primary font-bold text-base sm:text-lg">
-            ₹{service.price}
-          </span>
-          <span className="text-gray-400 text-sm sm:text-base line-through">
-            ₹{service.originalPrice}
-          </span>
-          <span className="text-green-600 text-xs sm:text-sm font-semibold">
-            {service.discount}% off
-          </span>
+          {service.originalPrice && (
+            <span className="text-gray-400 text-sm line-through">₹{service.originalPrice}</span>
+          )}
+          {service.price && (
+            <span className="text-primary font-semibold text-base">₹{service.price}</span>
+          )}
         </div>
 
         <motion.button
@@ -67,7 +64,7 @@ function ServiceCard({ service }) {
           className="
             mt-auto inline-block bg-gradient-to-r from-primary to-secondary 
             hover:from-secondary hover:to-primary text-white text-sm px-4 py-2 
-            rounded-lg shadow hover:shadow-lg transition-all duration-300"
+            rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
         >
           Book Now
         </motion.button>

@@ -34,7 +34,7 @@ function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center space-x-6">
-            {["Home", "Services", "Gallery", "Booking", "Contact"].map((text) => (
+            {["Home", "Services","Products", "Gallery", "Booking", "Contact"].map((text) => (
               <Link
                 key={text}
                 to={text === "Home" ? "/" : `/${text.toLowerCase()}`}
@@ -74,7 +74,7 @@ function Navbar() {
             className="md:hidden bg-gradient-to-b from-primary/90 to-secondary/90 dark:from-gray-900 dark:to-gray-800 shadow-inner rounded-b-xl"
           >
             <div className="flex flex-col space-y-4 p-4">
-              {["Home", "Services", "Gallery", "Booking", "Contact"].map((text) => (
+              {["Home", "Services","Products", "Gallery", "Booking", "Contact"].map((text) => (
                 <Link
                   key={text}
                   to={text === "Home" ? "/" : `/${text.toLowerCase()}`}
