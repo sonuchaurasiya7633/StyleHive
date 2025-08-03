@@ -111,57 +111,84 @@ const categories = [
 
 const Products = () => {
   return (
-    <div className="relative p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-hidden">
-      
-      {/* Background bubbles */}
-      {[...Array(15)].map((_, i) => (
+    <div className="relative min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 to-pink-50 dark:from-gray-900 dark:to-gray-800 p-6 md:p-10 overflow-hidden">
+
+      {/* 🫧 Luxury gradient bubbles */}
+      {[...Array(25)].map((_, i) => (
         <div
           key={i}
-          className="absolute rounded-full bg-gradient-to-br from-pink-400 to-purple-400 opacity-20 blur-xl animate-ping"
+          className="absolute rounded-full bg-gradient-to-br from-pink-400 to-purple-500 opacity-20 blur-2xl animate-pulse"
           style={{
-            width: `${8 + Math.random() * 12}px`,
-            height: `${8 + Math.random() * 12}px`,
+            width: `${25 + Math.random() * 40}px`,
+            height: `${25 + Math.random() * 40}px`,
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
-            animationDuration: `${4 + Math.random() * 6}s`,
-            animationDelay: `${Math.random() * 4}s`,
+            animationDuration: `${5 + Math.random() * 5}s`,
+            animationDelay: `${Math.random() * 3}s`,
           }}
         ></div>
       ))}
 
-      {categories.map((category, idx) => (
-        <div
-          key={idx}
-          className="
-            relative
-            rounded-3xl
-            bg-white/20 dark:bg-white/10
-            backdrop-blur-md
-            border border-gray-200/30 dark:border-gray-700/30
-            shadow-xl hover:shadow-2xl
-            hover:scale-105
-            transition duration-500
-            overflow-hidden
-          "
-        >
-          {/* Top animated gradient line */}
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400 animate-pulse" />
+      {/* 🌈 Ultra premium heading */}
+      <h1 className="text-center text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 text-transparent bg-clip-text drop-shadow-xl mb-12 relative z-10">
+        ✨ Discover Premium Salon Products
+      </h1>
 
-          {/* Header */}
-          <div className="bg-gradient-to-r from-pink-100/60 to-purple-100/60 dark:from-pink-300/20 dark:to-purple-300/20 rounded-t-3xl p-4">
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-100">
-              {category.title}
-            </h3>
+      {/* 🪟 Premium glass cards grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 relative z-10">
+        {categories.map((category, idx) => (
+          <div
+            key={idx}
+            className="
+              group relative rounded-3xl
+              bg-white/10 dark:bg-white/5
+              backdrop-blur-2xl
+              border border-white/20
+              shadow-[0_8px_40px_rgba(0,0,0,0.15)]
+              transition-all duration-500
+              hover:shadow-[0_12px_50px_rgba(236,72,153,0.3)]
+              overflow-hidden
+              hover:scale-[1.03]
+            "
+          >
+            {/* 🌟 Animated gradient ring on hover */}
+            <div className="absolute inset-0 rounded-3xl border border-transparent group-hover:border-pink-400/50 group-hover:shadow-[0_0_25px_5px_rgba(236,72,153,0.25)] transition-all duration-500"></div>
+
+            {/* 🪄 Gradient header strip with icon */}
+            <div className="flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-pink-50/60 to-purple-50/60 dark:from-pink-300/10 dark:to-purple-300/10">
+              <span className="text-xl">💎</span>
+              <h3 className="text-lg md:text-xl font-semibold text-gray-800 dark:text-gray-100 text-center tracking-wide">
+                {category.title}
+              </h3>
+            </div>
+
+            {/* 📄 Premium list */}
+            <ul className="p-6 space-y-3 text-gray-700 dark:text-gray-300 text-[15px] leading-relaxed tracking-normal">
+              {category.items.map((item, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-2 before:content-['•'] before:text-pink-500"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
+        ))}
+      </div>
 
-          {/* Items */}
-          <ul className="p-4 space-y-1 list-disc list-inside text-gray-800 dark:text-gray-100 text-sm">
-            {category.items.map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
+      {/* 📞 Contact */}
+      <div className="text-center mt-14 relative z-10">
+        <h2 className="text-lg md:text-xl font-semibold text-gray-800 dark:text-gray-200">
+          📞 To Order, Contact: 
+          <a
+            href="tel:7633036074"
+            className="ml-2 text-pink-600 dark:text-pink-400 font-bold underline hover:no-underline"
+          >
+            7633036074
+          </a>
+        </h2>
+      </div>
     </div>
   );
 };
