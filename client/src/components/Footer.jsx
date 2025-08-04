@@ -26,7 +26,7 @@ function Footer() {
 
           {/* Quick Links */}
           <div className="flex space-x-6 text-gray-600 dark:text-gray-300 text-sm sm:text-base">
-            {["Home", "Services", "Gallery", "Contact"].map((text, idx) => (
+            {["Home", "Services","Products", "Gallery", "Contact"].map((text, idx) => (
               <motion.div
                 key={idx}
                 whileHover={{ scale: 1.1, color: "#6366F1" }}

@@ -1,194 +1,336 @@
-import React from 'react';
+import React from "react";
 
 const categories = [
   {
-    title: '1. Hair Cutting and Styling Tools ✂️',
+    title: "1. Hair Cutting & Styling Tools ✂️",
+    img: "/image/tools/1.jpg",
     items: [
-      'Cutting Scissors - Ustraa, Nova',
-      'Thinning Scissors - Wahl, Rozia',
-      'Hair Clipper / Trimmer - Wahl, Philips, Nova',
-      'Combs and Brushes - Vega, Alan Truman',
-      'Hair Straightener - Philips, Havells',
-      'Hair Curling Rod - Ikonic, Havells',
-      'Hair Dryer - Dyson, Panasonic',
-      'Razor and Blades - Gillette, Dorco',
-      'Neck Duster Brush - Local / Branded',
-      'Barber Cape / Cutting Sheet - Waterproof / Disposable',
-      'Mirror Set (Hand & Table) - Local / Branded',
-      'Spray Bottle - Mist Spray',
+      "Cutting Scissors - Ustraa, Nova",
+      "Thinning Scissors - Wahl, Rozia",
+      "Hair Clipper - Wahl, Philips",
+      "Comb & Brushes - Vega",
+      "Hair Dryer - Dyson, Panasonic",
     ],
   },
   {
-    title: '2. Hair Care Products 🧴',
+    title: "2. Hair Care Products 🧴",
+    img: "/image/tools/2.jpg",
     items: [
-      'Shampoo - L\'Oréal, Tresemmé, Matrix',
-      'Conditioner - Dove, L\'Oréal',
-      'Hair Serum - Livon, Streax',
-      'Hair Gel / Wax - Gatsby, Set Wet',
-      'Hair Spa Cream - L\'Oréal, Biotique',
-      'Hair Oil - Parachute, Indulekha',
-      'Anti Dandruff Lotion - Scalpe, Selsun',
-      'Hair Color - L\'Oréal, Godrej',
-      'Hair Bleach - VLCC, Fem',
-      'Keratin Kit - L\'Oréal, Organic',
-      'Hair Botox Kit - Professional Use',
-      'Hair Smoothening Cream - Matrix, L\'Oréal',
+      "Shampoo - L'Oréal, Tresemmé",
+      "Conditioner - Dove, Matrix",
+      "Hair Oil - Indulekha, Parachute",
+      "Hair Serum - Livon, Streax",
+      "Hair Spa Cream - Biotique",
     ],
   },
   {
-    title: '3. Facial and Skin Care Products 💆‍♀️',
+    title: "3. Hair Coloring 🖌",
+    img: "/image/tools/3.jpg",
     items: [
-      'Gold Facial Kit - VLCC, O3+',
-      'Fruit Facial Kit - Nature, VLCC',
-      'Diamond Facial Kit - Lotus, Oxyglow',
-      'Cleanup Gel / Cream - VLCC, Aroma Magic',
-      'D-Tan Pack - Raaga, Oxy',
-      'Bleach Cream - Fem, VLCC',
-      'Face Scrub - Biotique, Himalaya',
-      'Toner & Moisturizer - Rose Water, Nivea',
-      'Facial Steamer - Local / Branded',
+      "Hair Color - L'Oréal, Godrej",
+      "Hair Bleach - VLCC, Fem",
+      "Keratin Kit - L'Oréal",
+      "Hair Smoothening Cream - Matrix",
+      "Hair Botox Kit - Professional Use",
     ],
   },
   {
-    title: '4. Beauty Tools & Accessories 💅',
+    title: "4. Facial Kits 💆‍♀️",
+    img: "/image/tools/4.jpg",
     items: [
-      'Wax Heater - For Hair Removal',
-      'Wax (White, Chocolate, Aloe Vera) - Rica, Sleek',
-      'Wax Strips - Disposable',
-      'Thread Roll - For Facial Threading',
-      'Blackhead Remover Tools - Steel Tools',
-      'Face Pack Brush - For Facial Use',
-      'Head Band - For Facial Time',
-      'Facial Sponge - Soft & Reusable',
+      "Gold Facial Kit - VLCC",
+      "Diamond Facial Kit - Lotus",
+      "Fruit Facial Kit - Nature Essence",
+      "Cleanup Gel - Aroma Magic",
+      "D-Tan Pack - Raaga",
     ],
   },
   {
-    title: '5. Hygiene and Disposable Items 🧽',
+    title: "5. Wax & Hair Removal 🍯",
+    img: "/image/tools/5.jpg",
     items: [
-      'Disposable Towel - Single Use',
-      'Hand Gloves - For Waxing/Facial',
-      'Face Mask - Staff Use',
-      'Sanitizer / Cleaning Spray - For Tools',
-      'Disinfectant Jar - For Combs/Brushes',
-      'Apron - For Staff',
-      'Bed Roll Sheet - For Client Bed',
+      "Wax Heater - Rica, Sleek",
+      "Chocolate Wax - Rica",
+      "Aloe Vera Wax - Sleek",
+      "Wax Strips - Disposable",
+      "Thread Roll - Facial Threading",
     ],
   },
   {
-    title: '6. Furniture & Big Equipment 🪑',
+    title: "6. Beauty Tools 💅",
+    img: "/image/tools/6.jpg",
     items: [
-      'Hydraulic Chair - For Hair Cutting',
-      'Shampoo Station - For Hair Wash',
-      'Facial Bed - For Facial & Massage',
-      'Tool Trolley - For Tools',
-      'Ring Light - For Proper Lighting',
-      'Reception Desk - For Customer Welcome',
-      'Waiting Chair - For Clients',
+      "Blackhead Remover Tools",
+      "Face Pack Brush",
+      "Head Band - Facial Use",
+      "Facial Sponge - Reusable",
+      "Eyebrow Tweezers",
     ],
   },
   {
-    title: '7. Retail / Resale Products 🛍',
+    title: "7. Hygiene & Disposables 🧽",
+    img: "/image/tools/7.jpg",
     items: [
-      'Herbal Hair Oil - Higher Margin',
-      'Face Wash - Himalaya, Biotique',
-      'Small Shampoo Bottles - For Retail Sale',
-      'Hair Serum Packets - Livon, Streax',
-      'Beard Oil / Wax - Beardo, Bombay Shaving',
-      'Hair Color Packets - Godrej, Streax',
-      'Face Pack Pouch - Patanjali, Biotique',
+      "Disposable Towels",
+      "Hand Gloves - Facial/Wax",
+      "Face Mask - Staff Use",
+      "Sanitizer Spray",
+      "Bed Roll Sheet",
     ],
   },
   {
-    title: '8. Branded Kits 📦',
+    title: "8. Big Equipment 🪑",
+    img: "/image/tools/8.jpg",
     items: [
-      'Bridal Makeup Kit',
-      'Hair Treatment Kit',
-      '5-in-1 Facial Kit',
-      'Full Salon Starter Kit',
+      "Hydraulic Chair",
+      "Shampoo Station",
+      "Facial Bed",
+      "Tool Trolley",
+      "Ring Light",
     ],
+  },
+  {
+    title: "9. Reception & Waiting 🛋",
+    img: "/image/tools/9.jpg",
+    items: [
+      "Reception Desk",
+      "Waiting Chair",
+      "Magazine Rack",
+      "Digital Display Board",
+      "Decor Plants",
+    ],
+  },
+  {
+    title: "10. Makeup Products 💄",
+    img: "/image/tools/10.jpg",
+    items: [
+      "Foundation - MAC, Lakmé",
+      "Compact Powder - Maybelline",
+      "Lipsticks - Lakmé, Nykaa",
+      "Makeup Brushes",
+      "Setting Spray",
+    ],
+  },
+  {
+    title: "11. Nail Care 💅",
+    img: "/image/tools/11.jpg",
+    items: [
+      "Nail Polish - Colorbar",
+      "Nail Polish Remover",
+      "Nail Filer & Buffer",
+      "Cuticle Remover",
+      "Nail Art Stickers",
+    ],
+  },
+  {
+    title: "12. Spa Essentials 🛁",
+    img: "/image/tools/12.jpg",
+    items: [
+      "Aroma Oils",
+      "Massage Creams",
+      "Body Scrub",
+      "Body Wrap",
+      "Massage Stones",
+    ],
+  },
+  {
+    title: "13. Steam & Heat Devices 🌫",
+    img: "/image/tools/13.jpg",
+    items: [
+      "Facial Steamer",
+      "Towel Warmer",
+      "Hot Stone Heater",
+      "Steam Machine",
+      "Infrared Lamp",
+    ],
+  },
+  {
+    title: "14. Men's Grooming 🧔",
+    img: "/image/tools/14.jpg",
+    items: [
+      "Beard Oil - Beardo",
+      "Beard Wax",
+      "Aftershave Lotion",
+      "Trimmers",
+      "Beard Comb",
+    ],
+  },
+  {
+    title: "15. Retail Products 🛍",
+    img: "/image/tools/15.jpg",
+    items: [
+      "Small Shampoo Bottles",
+      "Face Wash - Himalaya",
+      "Hair Serum Packets",
+      "Hair Color Sachets",
+      "Face Pack Pouch",
+    ],
+  },
+  {
+    title: "16. Branded Kits 📦",
+    img: "/image/tools/16.jpg",
+    items: [
+      "Bridal Makeup Kit",
+      "Full Salon Starter Kit",
+      "5-in-1 Facial Kit",
+      "Hair Treatment Kit",
+      "Keratin Kit",
+    ],
+  },
+  {
+    title: "17. Towels & Linens 🧺",
+    img: "/image/tools/17.jpg",
+    items: [
+      "Large Towels",
+      "Face Towels",
+      "Bed Sheets",
+      "Aprons",
+      "Head Bands",
+    ],
+  },
+  {
+    title: "18. Electric Tools 🔌",
+    img: "/image/tools/18.jpg",
+    items: [
+      "Hair Straightener",
+      "Curling Rod",
+      "Blow Dryer",
+      "Trimmer",
+      "Hot Brush",
+    ],
+  },
+  {
+    title: "19. Display & Branding 🏷",
+    img: "/image/tools/19.jpg",
+    items: [
+      "Brand Posters",
+      "Product Standee",
+      "Mirror Branding",
+      "Menu Cards",
+      "Digital Frames",
+    ],
+  },
+  {
+    title: "20. Decor & Ambience 🌿",
+    img: "/image/tools/20.jpg",
+    items: [
+      "Fairy Lights",
+      "Wall Art",
+      "Indoor Plants",
+      "Aroma Diffuser",
+      "Music Player",
+    ],
+  },
+  {
+    title: "21. Training & Books 📚",
+    img: "/image/tools/21.jpg",
+    items: [
+      "Haircut Books",
+      "Makeup Manuals",
+      "Skin Care Guide",
+      "Posters",
+      "Certificates",
+    ],
+  },
+  {
+    title: "22. Accessories & Add-ons ✨",
+    img: "/image/tools/22.jpg",
+    items: ["Neck Brush", "Mirror Set", "Spray Bottles", "Tool Bags", "Apron"],
   },
 ];
 
 const Products = () => {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-pink-100 via-purple-100 to-pink-50 dark:from-gray-900 dark:to-gray-800 p-6 md:p-10 overflow-hidden">
-
-      {/* 🫧 Luxury gradient bubbles */}
-      {[...Array(25)].map((_, i) => (
+      <div className="relative min-h-screen bg-gradient-to-tr from-gray-200 via-pink-100 to-white dark:from-gray-900 dark:via-purple-900 dark:to-gray-800 p-10 overflow-x-hidden">
+      {/* Floating soft light orbs for premium ambiance */}
+      {[...Array(12)].map((_, i) => (
         <div
           key={i}
-          className="absolute rounded-full bg-gradient-to-br from-pink-400 to-purple-500 opacity-20 blur-2xl animate-pulse"
+          className="absolute rounded-full opacity-20 bg-gradient-to-tr from-pink-400 via-purple-400 to-pink-300 blur-3xl animate-float-slow pointer-events-none z-0"
           style={{
-            width: `${25 + Math.random() * 40}px`,
-            height: `${25 + Math.random() * 40}px`,
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            animationDuration: `${5 + Math.random() * 5}s`,
-            animationDelay: `${Math.random() * 3}s`,
+            width: `${50 + Math.random() * 80}px`,
+            height: `${50 + Math.random() * 80}px`,
+            top: `${Math.random() * 85}%`,
+            left: `${Math.random() * 90}%`,
+            animationDuration: `${10 + Math.random() * 15}s`,
+            animationDelay: `${Math.random() * 10}s`,
           }}
         ></div>
       ))}
 
-      {/* 🌈 Ultra premium heading */}
-      <h1 className="text-center text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 text-transparent bg-clip-text drop-shadow-xl mb-12 relative z-10">
-        ✨ Discover Premium Salon Products
+      {/* Luxurious heading */}
+      <h1 className="text-center text-5xl md:text-7xl font-extralight tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-purple-700 via-pink-600 to-purple-600 dark:from-purple-400 dark:to-pink-400 drop-shadow-lg mb-16 z-10 relative">
+        ✨ Premium Saloon Essentials Products
       </h1>
 
-      {/* 🪟 Premium glass cards grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 relative z-10">
+      {/* Responsive product grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-14 relative z-10">
         {categories.map((category, idx) => (
           <div
             key={idx}
-            className="
-              group relative rounded-3xl
-              bg-white/10 dark:bg-white/5
-              backdrop-blur-2xl
-              border border-white/20
-              shadow-[0_8px_40px_rgba(0,0,0,0.15)]
-              transition-all duration-500
-              hover:shadow-[0_12px_50px_rgba(236,72,153,0.3)]
-              overflow-hidden
-              hover:scale-[1.03]
-            "
+            className="flex flex-col items-center group cursor-pointer transition-transform hover:scale-110 hover:z-20 duration-700"
           >
-            {/* 🌟 Animated gradient ring on hover */}
-            <div className="absolute inset-0 rounded-3xl border border-transparent group-hover:border-pink-400/50 group-hover:shadow-[0_0_25px_5px_rgba(236,72,153,0.25)] transition-all duration-500"></div>
-
-            {/* 🪄 Gradient header strip with icon */}
-            <div className="flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-pink-50/60 to-purple-50/60 dark:from-pink-300/10 dark:to-purple-300/10">
-              <span className="text-xl">💎</span>
-              <h3 className="text-lg md:text-xl font-semibold text-gray-800 dark:text-gray-100 text-center tracking-wide">
-                {category.title}
-              </h3>
+            {/* Image: premium card, glow, depth */}
+            <div className="relative w-32 h-32 md:w-36 md:h-36 rounded-2xl overflow-hidden shadow-[0_4px_25px_rgba(168,85,247,0.3),0_8px_40px_rgba(236,72,153,0.15)] bg-gradient-to-tr from-white via-pink-100 to-purple-100 dark:from-purple-900 dark:via-purple-800 dark:to-pink-900 transition-shadow duration-500 group-hover:shadow-[0_0_30px_5px_rgba(168,85,247,0.5),0_0_40px_10px_rgba(236,72,153,0.35)]">
+              <img
+                src={category.img}
+                alt={category.title}
+                className="w-full h-full object-cover rounded-2xl border border-transparent group-hover:border-purple-400 transition-all duration-500"
+              />
+              {/* Soft-glow overlay for elegance */}
+              <div className="absolute inset-0 rounded-2xl pointer-events-none ring-4 ring-purple-300/30 opacity-75 blur-[7px] group-hover:ring-pink-400 group-hover:blur-[12px] transition-all duration-500"></div>
             </div>
 
-            {/* 📄 Premium list */}
-            <ul className="p-6 space-y-3 text-gray-700 dark:text-gray-300 text-[15px] leading-relaxed tracking-normal">
-              {category.items.map((item, i) => (
-                <li
-                  key={i}
-                  className="flex items-start gap-2 before:content-['•'] before:text-pink-500"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
+            {/* Elegant glass card w/ subtle shadow and gradient border */}
+            <div className="mt-6 w-full max-w-xs bg-white/70 dark:bg-gray-900/60 rounded-3xl backdrop-blur-xl border border-purple-300/30 dark:border-pink-400/20 shadow-[0_12px_40px_rgba(168,85,247,0.15),0_6px_10px_rgba(236,72,153,0.1)] hover:shadow-[0_20px_60px_rgba(168,85,247,0.3),0_12px_20px_rgba(236,72,153,0.2)] transition-shadow duration-600">
+              <div className="flex items-center justify-center gap-4 py-5 px-7 bg-gradient-to-r from-purple-400 to-pink-400 rounded-xl shadow-md shadow-pink-400/40 dark:shadow-purple-700/50">
+                <span className="text-3xl text-white drop-shadow-lg">💎</span>
+                <h3 className="text-xl font-light text-white drop-shadow-lg tracking-wide">
+                  {category.title}
+                </h3>
+              </div>
+              <ul className="p-5 text-gray-800 dark:text-gray-200 text-base font-light space-y-3 list-disc list-inside">
+                {category.items.map((item, i) => (
+                  <li
+                    key={i}
+                    className="hover:text-purple-600 dark:hover:text-pink-400 transition-colors duration-300 cursor-default"
+                  >
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))}
       </div>
 
-      {/* 📞 Contact */}
-      <div className="text-center mt-14 relative z-10">
-        <h2 className="text-lg md:text-xl font-semibold text-gray-800 dark:text-gray-200">
-          📞 To Order, Contact: 
+      {/* Contact section */}
+      <div className="text-center mt-16 z-10">
+        <h2 className="text-2xl font-light text-gray-900 dark:text-gray-100 tracking-wide">
+          📞 To Order, Contact:
           <a
-            href="tel:7633036074"
-            className="ml-2 text-pink-600 dark:text-pink-400 font-bold underline hover:no-underline"
+            href="tel:8084654030"
+            className="ml-3 font-semibold text-purple-600 dark:text-pink-400 underline hover:no-underline"
           >
-            7633036074
+            8084654030
           </a>
         </h2>
       </div>
+
+      {/* Subtle floating animation keyframes */}
+      <style>{`
+        @keyframes float-slow {
+          0%, 100% {
+            transform: translateY(-8px);
+          }
+          50% {
+            transform: translateY(8px);
+          }
+        }
+        .animate-float-slow {
+          animation: float-slow 14s ease-in-out infinite;
+        }
+      `}</style>
     </div>
   );
 };
