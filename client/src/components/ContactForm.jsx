@@ -50,48 +50,62 @@ function ContactForm() {
   };
 
   return (
-    <>
-      <form ref={form} onSubmit={handleSubmit} className="max-w-lg mx-auto space-y-4 p-4 sm:p-6">
-        <div>
-          <input
-            type="text"
-            name="name"
-            placeholder="Full Name"
-            value={formData.name}
-            onChange={handleChange}
-            className="w-full p-3 border rounded-lg dark:bg-gray-700 focus:ring-2 focus:ring-primary"
-          />
-          {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+    <div className="min-h-screen flex items-center justify-center px-4 py-10 bg-white dark:bg-gray-950">
+      <form
+        ref={form}
+        onSubmit={handleSubmit}
+        className="w-full max-w-lg p-8 sm:p-10 md:p-12 rounded-3xl shadow-xl bg-gradient-to-br from-pink-500 via-purple-600 to-pink-500 dark:from-purple-900 dark:via-pink-800 dark:to-purple-900 backdrop-blur-xl border border-pink-400/30 dark:border-purple-700/80"
+      >
+        <h2 className="text-3xl sm:text-4xl text-white font-extrabold text-center mb-8 drop-shadow-lg">Get in Touch 💌</h2>
+
+        <div className="space-y-6">
+          <div>
+            <input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              value={formData.name}
+              onChange={handleChange}
+              className={`w-full p-4 rounded-xl outline-none bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-white border transition focus:ring-4 ${errors.name ? 'border-red-500 focus:ring-red-400' : 'border-transparent focus:ring-pink-400'}`}
+            />
+            {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+          </div>
+
+          <div>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              value={formData.email}
+              onChange={handleChange}
+              className={`w-full p-4 rounded-xl outline-none bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-white border transition focus:ring-4 ${errors.email ? 'border-red-500 focus:ring-red-400' : 'border-transparent focus:ring-pink-400'}`}
+            />
+            {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+          </div>
+
+          <div>
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              value={formData.message}
+              onChange={handleChange}
+              rows="5"
+              className={`w-full p-4 rounded-xl outline-none bg-white/90 dark:bg-gray-900/80 text-gray-900 dark:text-white border transition focus:ring-4 ${errors.message ? 'border-red-500 focus:ring-red-400' : 'border-transparent focus:ring-pink-400'}`}
+            ></textarea>
+            {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+          </div>
+
+          <button
+            type="submit"
+            className="w-full py-4 rounded-full bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600 text-white font-bold text-lg shadow-lg hover:shadow-xl transition duration-300"
+          >
+            Send Message
+          </button>
         </div>
-        <div>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full p-3 border rounded-lg dark:bg-gray-700 focus:ring-2 focus:ring-primary"
-          />
-          {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-        </div>
-        <div>
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            value={formData.message}
-            onChange={handleChange}
-            className="w-full p-3 border rounded-lg dark:bg-gray-700 focus:ring-2 focus:ring-primary"
-            rows="5"
-          ></textarea>
-          {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
-        </div>
-        <button type="submit" className="btn bg-primary text-white hover:bg-secondary w-full">
-          Send Message
-        </button>
       </form>
 
-      <ToastContainer position="top-center" autoClose={3000} hideProgressBar newestOnTop closeOnClick />
-    </>
+      <ToastContainer position="top-center" autoClose={3000} hideProgressBar />
+    </div>
   );
 }
 
