@@ -228,7 +228,9 @@ function BookingForm() {
               name={name}
               placeholder={placeholder}
               value={
-                formData[name.includes(".") ? name.split(".")[1] : name] || ""
+                name.includes(".")
+                  ? formData[name.split(".")[0]][name.split(".")[1]]
+                  : formData[name]
               }
               onChange={handleChange}
               className={`p-4 rounded-xl outline-none focus:ring-4 transition duration-300 bg-white/80 dark:bg-gray-900/80 border ${
@@ -245,13 +247,12 @@ function BookingForm() {
           </div>
         ))}
 
-       <button
-  type="submit"
-  className="w-full py-4 rounded-full bg-gradient-to-r from-pink-600 via-purple-700 to-pink-600 text-white font-extrabold shadow-lg hover:shadow-2xl hover:scale-105 transform transition duration-500 ease-in-out focus:outline-none focus:ring-4 focus:ring-pink-400 focus:ring-opacity-70 active:scale-95"
->
-  Submit Booking
-</button>
-
+        <button
+          type="submit"
+          className="w-full py-4 rounded-full bg-gradient-to-r from-pink-600 via-purple-700 to-pink-600 text-white font-extrabold shadow-lg hover:shadow-2xl hover:scale-105 transform transition duration-500 ease-in-out focus:outline-none focus:ring-4 focus:ring-pink-400 focus:ring-opacity-70 active:scale-95"
+        >
+          Submit Booking
+        </button>
       </form>
 
       <ToastContainer
